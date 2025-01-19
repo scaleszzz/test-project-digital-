@@ -18,9 +18,34 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
+    // Spring Boot Web Starter (для REST API)
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Spring Boot JPA Starter (для работы с Hibernate)
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // PostgreSQL Driver (для подключения PostgreSQL)
+    runtimeOnly 'org.postgresql:postgresql:42.6.0'
+
+    // Spring Boot Starter Security (для авторизации и аутентификации)
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // Spring Boot Starter Cache (для in-memory кэширования)
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
+
+    // OpenAPI/Swagger (документация API)
+    implementation 'io.springfox:springfox-boot-starter:3.0.0'
+
+    // Для логирования (SLF4J, Logback - встроен в Spring Boot)
+    implementation 'org.springframework.boot:spring-boot-starter-logging'
+
+    // Micrometer (для сбора метрик)
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+
+    // Тестирование
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation 'org.mockito:mockito-core:5.4.0'
+    testImplementation 'org.springframework.security:spring-security-test'
 }
 
 tasks.named('test') {
